@@ -1,6 +1,7 @@
 #map {
     height: 500vh;
 }
+
 .popup-container {
     position: fixed;
     top: 20px;
