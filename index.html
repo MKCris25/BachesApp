@@ -216,7 +216,7 @@
                             <h5>Ubicación: </h5>
                             <h4 id="modalLocation" class="text-center">Ubicación del Bache</h5>
                                 <h5>Descripcion: </h5>
-                            <h4 id="modalDescription" class="text-center">Descripción del bache</h4>
+                                <h4 id="modalDescription" class="text-center">Descripción del bache</h4>
                         </div>
                     </div>
                 </div>
@@ -248,25 +248,30 @@
     <!-- Firebase JS -->
 
     <script type="module">
-
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyArJEmxZ4ItW5Vj2ssUVu0Xi9swyrmw1q8",
-            authDomain: "baches-ab476.firebaseapp.com",
-            databaseURL: "https://baches-ab476-default-rtdb.firebaseio.com",
-            projectId: "baches-ab476",
-            storageBucket: "baches-ab476.appspot.com",
-            messagingSenderId: "334952057983",
-            appId: "1:334952057983:web:c0f696fc3ac8b4b309c34a"
+            apiKey: "AIzaSyB1aneLzXatdI6hVhMoTrccZCfY0XvZtek",
+            authDomain: "bachesapp-bbdbf.firebaseapp.com",
+            databaseURL: "https://bachesapp-bbdbf-default-rtdb.firebaseio.com",
+            projectId: "bachesapp-bbdbf",
+            storageBucket: "bachesapp-bbdbf.appspot.com",
+            messagingSenderId: "876448630885",
+            appId: "1:876448630885:web:565aa8fc9f72319fb65e8c"
         };
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+
+
+
+
+
+
         import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"
         const db = getDatabase();
         const bachesRef = ref(db, 'baches');
@@ -370,7 +375,7 @@
                         descripcion: bache.descripcion,
                         latitud: bache.latitud,
                         longitud: bache.longitud,
-                        fotoBase64: bache.foto ,
+                        fotoBase64: bache.foto,
                         location: bache.ubicacion// Suponiendo que 'foto' es una cadena base64
                     };
 
