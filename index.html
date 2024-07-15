@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Baches - Plataforma online de avisos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-road me-3"></i>Baches</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                    style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mapa de baches online
+                                </h5>
+                                <h1 class="display-3 text-white animated slideInDown">Contribuye a calles más seguras
+                                </h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Un bache en la ruta puede causar daños severos a
+                                    los vehículos, poniendo en riesgo la seguridad de los conductores. Reporta baches
+                                    para que las autoridades puedan repararlos y mantener nuestras calles seguras para
+                                    todos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="img/carousel-2.jpeg" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                    style="background: rgba(24, 29, 56, .7);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-sm-10 col-lg-8">
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Mapa de baches online
+                                </h5>
+                                <h1 class="display-3 text-white animated slideInDown">Reporta y mejora la seguridad vial
+                                </h1>
+                                <p class="fs-5 text-white mb-4 pb-2">Un bache arreglado es un paso hacia una comunidad
+                                    más segura y conectada. Gracias a tu reporte, podemos trabajar juntos para mantener
+                                    las vías libres de peligros y mejorar la experiencia de conducción para todos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Parametros inicio -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5 class="mb-3">Usuarios</h5>
+                            <p>Nuestros usuarios son la clave para identificar y reportar baches, asegurando calles más
+                                seguras para todos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-map-pin text-primary mb-4"></i>
+                            <h5 class="mb-3">Baches reportados</h5>
+                            <p>Cada bache reportado nos ayuda a mantener un registro actualizado y priorizar las
+                                reparaciones necesarias.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-users text-primary mb-4"></i>
+                            <h5 class="mb-3">Comunidad única</h5>
+                            <p>Formamos una comunidad única donde cada miembro contribuye a mejorar la seguridad vial de
+                                nuestra ciudad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3 h-100">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-map-marker text-primary mb-4"></i>
+                            <h5 class="mb-3">Mapa Interactivo de Baches</h5>
+                            <p>Explora nuestro mapa interactivo donde puedes encontrar marcadores de baches reportados
+                                por nuestra comunidad. Haz clic en cada marcador para ver más detalles y la imagen
+                                correspondiente del bache.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Parametros final -->
+
+
+    <!-- MAPA inicio -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-12 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div id="map" style="height: 700px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MAPA final -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-12 col-md-6">
+                    <h4 class="text-white mb-3">Contacto</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">AppBaches</a>, All Right Reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <div class="modal fade" id="markerModal" tabindex="-1" aria-labelledby="markerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl"> <!-- modal-xl para un modal extra grande -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="markerModalLabel">Información del Marcador(Bache reportado)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <img id="modalImage" src="" class="img-fluid" style="width: 100%;"
+                                alt="Imagen del Marcador">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Ubicación: </h5>
+                            <h4 id="modalLocation" class="text-center">Ubicación del Bache</h5>
+                                <h5>Descripcion: </h5>
+                            <h4 id="modalDescription" class="text-center">Descripción del bache</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <!-- Firebase JS -->
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyArJEmxZ4ItW5Vj2ssUVu0Xi9swyrmw1q8",
+            authDomain: "baches-ab476.firebaseapp.com",
+            databaseURL: "https://baches-ab476-default-rtdb.firebaseio.com",
+            projectId: "baches-ab476",
+            storageBucket: "baches-ab476.appspot.com",
+            messagingSenderId: "334952057983",
+            appId: "1:334952057983:web:c0f696fc3ac8b4b309c34a"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js"
+        const db = getDatabase();
+        const bachesRef = ref(db, 'baches');
+
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var markerLayer = L.layerGroup().addTo(map);
+
+        // Control de capas
+        var baseMaps = {
+            "Mapa Regular": osmLayer
+        };
+
+        var overlayMaps = {
+            "Marcadores": markerLayer
+        };
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+        // Crear un botón de localización personalizado
+        var locateControl = L.control({ position: 'topright' });
+
+        locateControl.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+
+            var button = L.DomUtil.create('a', 'leaflet-control-custom');
+            button.innerHTML = '<i class="fa fa-location-arrow"></i>';
+            button.href = '#';
+            button.title = 'Localizar mi Ubicación';
+
+            button.onclick = function () {
+                // Verificar si el navegador soporta geolocalización
+                if (navigator.geolocation) {
+                    // Obtener la ubicación del usuario
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var lat = position.coords.latitude;
+                        var lng = position.coords.longitude;
+
+                        // Centrar el mapa en la ubicación del usuario
+                        map.setView([lat, lng], 13);
+
+                        var realTimeLocationIcon = L.icon({
+                            iconUrl: 'img/icon.svg',
+                            iconSize: [20, 20]
+                        });
+
+                        // Agregar el icono de ubicación al mapa
+                        L.marker([lat, lng], { icon: realTimeLocationIcon }).addTo(map);
+                    }, function (error) {
+                        console.error('Error al obtener la ubicación del usuario:', error);
+                        alert('No se pudo obtener tu ubicación.');
+                    });
+                } else {
+                    alert('Tu navegador no soporta geolocalización.');
+                }
+
+                return false;
+            };
+
+            div.appendChild(button);
+            button.click();
+            return div;
+        };
+
+        locateControl.addTo(map);
+
+        function base64ToBlob(base64String, contentType) {
+            contentType = contentType || '';
+            const byteCharacters = atob(base64String);
+            const byteArrays = [];
+
+            for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+                const slice = byteCharacters.slice(offset, offset + 512);
+
+                const byteNumbers = new Array(slice.length);
+                for (let i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+
+                const byteArray = new Uint8Array(byteNumbers);
+                byteArrays.push(byteArray);
+            }
+
+            return new Blob(byteArrays, { type: contentType });
+        }
+
+        // Obtener los datos de la referencia de baches
+        get(bachesRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const bacheData = snapshot.val();
+                console.log('Datos de baches:', bacheData);
+
+                Object.keys(bacheData).forEach((key) => {
+                    const bache = bacheData[key];
+
+                    const objetoBache = {
+                        id: bache.id,
+                        descripcion: bache.descripcion,
+                        latitud: bache.latitud,
+                        longitud: bache.longitud,
+                        fotoBase64: bache.foto ,
+                        location: bache.ubicacion// Suponiendo que 'foto' es una cadena base64
+                    };
+
+                    var marker = L.marker([objetoBache.latitud, objetoBache.longitud]).addTo(markerLayer);
+
+                    marker.on('click', function () {
+                        document.getElementById('modalImage').src = "data:image/jpeg;base64," + objetoBache.fotoBase64;
+                        // Establecer la ubicación en el modal
+                        document.getElementById('modalLocation').textContent = objetoBache.location;
+
+                        // Establecer la descripción en el modal
+                        document.getElementById('modalDescription').textContent = objetoBache.descripcion;
+                        var markerModal = new bootstrap.Modal(document.getElementById('markerModal'), { backdrop: 'static' });
+                        markerModal.show();
+                    });
+
+
+                });
+            } else {
+                console.log('No se encontraron datos de baches.');
+            }
+        }).catch((error) => {
+            console.error('Error al obtener datos de baches:', error);
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
